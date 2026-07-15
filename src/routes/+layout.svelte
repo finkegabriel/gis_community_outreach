@@ -2,6 +2,7 @@
     import favicon from '$lib/assets/favicon.svg';
     import distance from '@turf/distance';
     import { point } from '@turf/helpers';
+    import { goto } from '$app/navigation';
     import { onMount } from 'svelte';
     import { PUBLIC_ANALYTICS_ID, PUBLIC_API_URL, PUBLIC_SECRET_KEY } from '$env/static/public';
 
@@ -34,6 +35,7 @@
 
             // Clean up the URL so the key isn't sitting in the address bar
             window.history.replaceState({}, document.title, window.location.pathname);
+            console.log("/map");
         }
     });
 </script>

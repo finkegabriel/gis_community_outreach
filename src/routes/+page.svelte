@@ -1,6 +1,7 @@
 <script>
     import { onDestroy, onMount } from 'svelte';
     import { Html5Qrcode } from 'html5-qrcode';
+    import { goto } from '$app/navigation';
 
     let html5Qrcode;
     let isScanning = $state(false);
@@ -22,6 +23,9 @@
                 (decodedText) => {
                     // Triggered when a QR code is successfully read
                     stopScanner();
+                    console.log("decode ",decodedText);
+                    goto('/map', { replaceState: true });
+
                 },
                 (errorMessage) => {
                     // Verbose log for debug, can be ignored in production
